@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NemoClaw on DGX Spark</title>
+<style>
+  body {
+    margin: 0; padding: 0;
+    background: #0f0f1a;
+    color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+  }
+  .container { max-width: 500px; padding: 40px 20px; }
+  h1 {
+    font-size: 2rem; font-weight: 800;
+    background: linear-gradient(135deg, #fff 0%, #76b900 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    margin-bottom: 16px;
+  }
+  p { color: #8a8a9a; margin-bottom: 24px; }
+  .lang-buttons { display: flex; gap: 16px; justify-content: center; }
+  .lang-buttons a {
+    display: flex; align-items: center; gap: 10px;
+    padding: 16px 32px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 1.1rem; font-weight: 600;
+    transition: all 0.3s;
+  }
+  .lang-buttons a:hover { transform: translateY(-2px); }
+  .lang-fr {
+    background: rgba(118,185,0,0.15); border: 2px solid #76b900;
+    color: #76b900;
+  }
+  .lang-en {
+    background: rgba(100,181,246,0.15); border: 2px solid #64b5f6;
+    color: #64b5f6;
+  }
+  .lang-fr:hover { background: rgba(118,185,0,0.3); }
+  .lang-en:hover { background: rgba(100,181,246,0.3); }
+  .auto-redirect {
+    margin-top: 24px; font-size: 0.8rem; color: #4a4a5a;
+  }
+  noscript .auto-redirect { display: none; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>NemoClaw on DGX Spark</h1>
+  <p>Choose your language / Choisissez votre langue</p>
+  <div class="lang-buttons">
+    <a href="fr/" class="lang-fr">&#127467;&#127479; Fran&ccedil;ais</a>
+    <a href="en/" class="lang-en">&#127468;&#127463; English</a>
+  </div>
+  <p class="auto-redirect">Redirecting based on your browser language...</p>
+</div>
+
+<script>
+  // Auto-detect browser language and redirect
+  const lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+  const target = lang.startsWith('fr') ? 'fr/' : 'en/';
+
+  // Redirect after a short delay (so the user sees the page briefly)
+  setTimeout(() => {
+    window.location.href = target;
+  }, 1500);
+</script>
+
+<noscript>
+  <style>.auto-redirect { display: none !important; }</style>
+</noscript>
+</body>
+</html>
